@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { centerVariants, opacityVariants } from "../variants/variants";
+import {
+    centerVariants,
+    opacityVariants,
+    btnHoverVariants,
+} from "../variants/variants";
 
 // mass: number
 // Mass of the moving object. Higher values will result in more lethargic movement. Set to 1 by default.
@@ -11,7 +15,7 @@ import { centerVariants, opacityVariants } from "../variants/variants";
 // staggerChildren: number
 // if staggerChildren is 0.01, the first child will be delayed by 0 seconds, the second by 0.01, the third by 0.02 and so on.
 
-const Order = ({ pizza }) => {
+const Order = ({ pizza, setShowModal }) => {
     return (
         <motion.div
             className="container order"
@@ -35,6 +39,15 @@ const Order = ({ pizza }) => {
                     <div key={topping}>{topping}</div>
                 ))}
             </motion.div>
+            <motion.button
+                variants={opacityVariants.call(null)}
+                whileHover={{
+                    ...btnHoverVariants.hover,
+                }}
+                onClick={setShowModal.bind(null, true)}
+            >
+                Make another 🍕
+            </motion.button>
         </motion.div>
     );
 };
