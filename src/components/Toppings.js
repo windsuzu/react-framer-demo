@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { centerVariants } from "../variants/variants";
 
 const Toppings = ({ addTopping, pizza }) => {
     let toppings = [
@@ -15,9 +16,9 @@ const Toppings = ({ addTopping, pizza }) => {
     return (
         <motion.div
             className="toppings container"
-            initial={{ opacity: 0, x: "10vw" }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            variants={centerVariants.call(null, { duration: 1 })}
+            initial="hidden"
+            animate="visible"
         >
             <h3>Step 2: Choose Toppings</h3>
             <ul>

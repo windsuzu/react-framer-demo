@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { centerVariants, nextVariants } from "../variants/variants";
 
 const Base = ({ addBase, pizza }) => {
     const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
@@ -8,9 +9,9 @@ const Base = ({ addBase, pizza }) => {
     return (
         <motion.div
             className="base container"
-            initial={{ opacity: 0, x: "10vw" }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            variants={centerVariants.call(null, { duration: 1 })}
+            initial="hidden"
+            animate="visible"
         >
             <h3>Step 1: Choose Your Base</h3>
             <ul>
@@ -34,12 +35,7 @@ const Base = ({ addBase, pizza }) => {
             </ul>
 
             {pizza.base && (
-                <motion.div
-                    className="next"
-                    initial={{ x: "-100vw" }}
-                    animate={{ x: 0 }}
-                    transition={{ type: "spring", stiffness: 120 }}
-                >
+                <motion.div className="next" variants={nextVariants.call(null)}>
                     <Link to="/toppings">
                         <motion.button
                             whileHover={{
