@@ -16,6 +16,7 @@ const Modal = (props) => {
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
+                    onClick={props.setShowModal.bind(null, false)}
                 >
                     <motion.div className="modal" variants={modalVariants}>
                         <p>Do you want to make another 🍕?</p>
