@@ -7,9 +7,10 @@ const Home = () => {
     return (
         <motion.div
             className="home container"
-            variants={opacityVariants.call(null, { delay: 0.5, duration: 1.5 })}
+            variants={opacityVariants.call(null, { delay: 1, duration: 1.5 })}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             <h2>Welcome to Pizza Joint</h2>
             <Link to="/base">

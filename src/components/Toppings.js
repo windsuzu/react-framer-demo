@@ -20,9 +20,10 @@ const Toppings = ({ addTopping, pizza }) => {
     return (
         <motion.div
             className="toppings container"
-            variants={centerVariants.call(null, { duration: 1 })}
+            variants={centerVariants.call(null, { duration: 0.2 })}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             <h3>Step 2: Choose Toppings</h3>
             <ul>

@@ -14,9 +14,10 @@ const Base = ({ addBase, pizza }) => {
     return (
         <motion.div
             className="base container"
-            variants={centerVariants.call(null, { duration: 1 })}
+            variants={centerVariants.call(null, { duration: 0.2 })}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             <h3>Step 1: Choose Your Base</h3>
             <ul>

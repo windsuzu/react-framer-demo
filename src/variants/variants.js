@@ -8,6 +8,10 @@ export const opacityVariants = (transitionProps) => ({
             ...transitionProps,
         },
     },
+    exit: {
+        x: "-100vw",
+        transition: { ease: "easeInOut" },
+    },
 });
 
 export const centerVariants = (transitionProps) => ({
@@ -21,6 +25,11 @@ export const centerVariants = (transitionProps) => ({
         transition: {
             ...transitionProps,
         },
+    },
+    exit: {
+        opacity: 0,
+        x: "-100vw",
+        transition: { ease: "easeInOut" },
     },
 });
 
