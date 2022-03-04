@@ -6,8 +6,11 @@ export const btnHoverVariants = {
         textShadow: "0px 0px 8px rgb(255,255,255)",
         boxShadow: "0px 0px 8px rgb(255,255,255)",
         transition: {
-            yoyo: Infinity,
             duration: 0.3,
+            repeat: Infinity,
+            repeatType: "reverse",
+            // yoyo is now called "reverse", and "reverse" is a type of repeatType
+            // repeatType can be "loop" (default), "mirror" or "reverse" (yoyo previously)
         },
     },
 };
