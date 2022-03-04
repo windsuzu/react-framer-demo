@@ -7,11 +7,11 @@ const pizzaVariants = {
         transition: { repeat: Infinity, repeatType: "reverse", duration: 0.5 },
     },
     jumping: {
-        x: [-20, 0, 20],
-        y: [0, 20, 0],
+        y: [-20, 20],
         transition: {
             repeat: Infinity,
             repeatType: "reverse",
+            stiffness: 1000,
             duration: 0.5,
         },
     },

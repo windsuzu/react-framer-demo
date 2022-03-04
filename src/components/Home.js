@@ -15,7 +15,7 @@ const Home = () => {
             variants={opacityVariants.call(null, { delay: 1, duration: 1.5 })}
             initial="hidden"
             animate="visible"
-            exit={{ ...centerVariants.exit }}
+            exit={{ ...centerVariants.call(null).exit }}
         >
             <h2>Welcome to Pizza Joint</h2>
             <Link to="/base">

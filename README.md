@@ -19,11 +19,11 @@
 <br />
 <p align="center">
   <a href="https://windsuzu.github.io/react-framer-demo">
-    <p style="font-size: 3rem; text-align: center">🍕🍕🍕</p>
+    <img src="public/logo.gif" align="center" />
   </a>
   <h3 align="center">React Framer Demo</h3>
   <p align="center">
-    A comprehensive demo showing the use of react-router-dom v6.
+    A simple demo PIZZA app showing the use of Framer Motion library.
     <br />
     <a href="https://windsuzu.github.io/react-framer-demo">View Demo</a>
     ·
@@ -37,7 +37,17 @@
 <summary>Table of Contents</summary>
 
 * [About](#about)
-* [Preview](#preview)
+* [Tutorial](#tutorial)
+  * [1. Basic Animation](#1-basic-animation)
+  * [2. Variants](#2-variants)
+  * [3. Hover Animation](#3-hover-animation)
+  * [4. KeyFrames](#4-keyframes)
+  * [5. Repeating Animation](#5-repeating-animation)
+  * [6. Exit with AnimatePresence](#6-exit-with-animatepresence)
+  * [7. React-Router-Dom v6 + AnimatePresence](#7-react-router-dom-v6--animatepresence)
+  * [8. useCycle](#8-usecycle)
+  * [9. drag](#9-drag)
+* [Examples](#examples)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -51,7 +61,7 @@
 
 這裡展示如何使用 framer-motion 讓網頁元件動起來。
 
-在 [Examples](#examples) 你可以點擊 gif 動畫觀看對應的原始碼；在 [Tutorial](#tutorial) 你可以看到所有 framer-motion 的用法講解。
+在 [Tutorial](#tutorial) 你可以看到所有 framer-motion 的用法講解；在 [Examples](#examples) 你可以點擊 gif 動畫觀看對應的原始碼。
 
 <table>
 <tr>
@@ -72,45 +82,209 @@
 
 ---
 
-## Examples
-
 ## Tutorial
 
-### Basic Animation
+### 1. Basic Animation
 
-使用 motion, initial, animate 來操作物件動畫
+1. 導入 `motion` 並將他插入想要動畫的元件名稱 (e.g. `div` => `motion.div`)
+2. `initial` 設定動畫開始前的位置、屬性
+3. `animate` 設定動畫開始後的位置、屬性
+4. `transition` 設定延遲 (`delay`)、動畫類型 (`type`, 有 `tween`, `spring`, etc) 和其他動畫設定
+   * `duration`, `stiffness`, `mass`, `damping`,`repeat`, `repeatType`, `when`, `ease`, ...
 
-### Transition
+``` js
+import { motion } from "framer-motion";
 
-在物件動畫裡加入 duration, delay, type
+<motion.div
+    initial={{ y: -250 }}
+    animate={{ y: -10 }}
+    transition={{ delay: 0.3, type: "spring", stiffness: 120 }}>
+    <h1>Pizza Joint</h1>
+</motion.div>
+```
+---
 
-### Hover Animation
+### 2. Variants
 
-透過 hover 機制觸發動畫
+使用 `variants` 包裝動畫可以讓 JSX 更乾淨。你可以在 `variants` 物件定義任何動畫，並且在 JSX component 上使用字串的方式呼叫動畫。
 
-### Variants
+若是使用子元件 (child component) 使用的動畫 `variants` 的動畫命名一樣，可以省略不打。
 
-利用 variants 來更方便的管理動畫
+``` js
+const opacityVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: { delay: 0.5, duration: 1 }
+    },
+};
 
-### KeyFrames
+<motion.div
+    variants={opacityVariants}
+    initial="hidden"
+    animate="visible"
+>
+    // otherVariants also uses initial="hidden" and animate="visible"
+    <motion.h1 variants={otherVariants}>Hello World</motion.h1>
+</motion.div>
+```
+---
 
-讓動畫照順序執行
+### 3. Hover Animation
 
-### Repeating Animation
+我們可以用 `whileHover` 來觸發在 `variants` 定義好的動畫。
 
-讓動畫重複執行
+``` js
+const btnHoverVariants = {
+    hover: {
+        scale: 1.1,
+        ...
+    },
+};
 
-### AnimatePresense
+<motion.button variants={btnHoverVariants} whileHover="hover">
+    Create Your Pizza
+</motion.button>
+```
+---
 
-利用 AnimatePresense 製作離開的動畫
+### 4. KeyFrames
 
-### useCycle
+只需要用陣列 (array) 設定屬性就可以讓動畫照順序執行。
 
-利用 useCycle 來切換多個動畫
+``` js
+const btnHoverVariants = {
+    hover: {
+        x: [0, 10, 0, 10, 0]
+        scale: [1.5, 1, 1.5, 1, 1.5]
+        ...
+    },
+};
+```
+---
 
-### drag
+### 5. Repeating Animation
 
-利用 drag 拖曳物件
+在 transition 添加 `repeat`, `repeatType` 可以讓動畫重複執行指定的次數 (或無限次)。
+
+``` js
+const btnHoverVariants = {
+    hover: {
+        ...
+        transition: {
+            ...
+            repeat: Infinity, // or number (1, 2, ...)
+            repeatType: "reverse", // or mirror, loop (default)
+        },
+    },
+};
+```
+---
+
+### 6. Exit with AnimatePresence 
+
+要製作離開動畫必須要:
+
+1. 使用 `<AnimatePresence>` 包住要離開的 motion JSX component
+2. 設定 motion JSX component 的 `exit` 屬性
+3. (Opt.) 可以添加 `exitBeforeEnter` 讓離開動畫先播放完再展示下一個動畫 
+
+``` js
+const opacityVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    ...
+};
+
+<AnimatePresence exitBeforeEnter>
+    <motion.div variants={opacityVariants} exit="hidden">
+        ...
+    </motion.div>
+</AnimatePresence>
+```
+---
+
+### 7. React-Router-Dom v6 + AnimatePresence
+
+我們可以搭配 `react-router-dom@v6` 的 `Routes`, `useLocation` 來和 `AnimatePresence` 實作頁面切換的動畫。
+
+1. 用 `<AnimatePresence>` 將 `<Routes>` 包起來
+2. 在 `<Routes>` 設定 `location` 跟 `key`
+3. 在要實作切換的頁面添加 `exit`
+
+``` js
+function App() {
+    const location = useLocation();
+    <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={...} >
+        <Routes location={location} key={location.pathname}>
+            <Route path="/base" element={<Base />} />
+        </Routes>
+    </AnimatePresence>
+}
+
+function Base() {
+    return (<motion.div ... exit="exit">...</motion.div>)
+}
+```
+---
+
+### 8. useCycle
+
+我們可以用 `useCycle` 對單個物件切換多種動畫。
+
+``` js
+const variants = {
+    popping: {
+        ...
+    },
+    jumping: {
+        ...
+    },
+};
+
+const [animation, cycleAnimation] = useCycle("popping", "jumping");
+
+<motion.p
+    variants={variants}
+    animate={animation}
+    onClick={cycleAnimation}
+></motion.p>
+```
+---
+
+### 9. drag
+
+添加 `drag` 就可以拖曳物件；添加 `dragContrainsts` 來限制物件的移動範圍；添加 `dragElastic` 控制拖曳的重量，小於 `1` 物件會變得更難拖曳。
+
+``` js
+<motion.svg
+    ...
+    drag
+    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+    dragElastic={1}
+><motion.svg>
+```
+
+## Examples
+
+| SVG Animation                 | Repeating Animation                |
+| ----------------------------- | ---------------------------------- |
+| ![](images/1-header-logo.gif) | ![](images/2-button.gif)           |
+| **Exit with AnimatePresence** | **Fade-In**                        |
+| ![](images/3-home-exit.gif)   | ![](images/4-fade.gif)             |
+| **Hover Items**               | **Animate Next Button**            |
+| ![](images/5-item.gif)        | ![](images/6-next.gif)             |
+| **StaggerChildren**           | **Show Modal**                     |
+| ![](images/7-stagger.gif)     | ![](images/8-modal.gif)            |
+| **Exit Modal**                | **Switch Animation with useCycle** |
+| ![](images/9-modal-exit.gif)  | ![](images/10-cycle.gif)           |
+| **drag**                      |
+| ![](images/11-drag.gif)       |
 
 ---
 
