@@ -13,6 +13,9 @@ const Header = () => {
                     variants={svgVariants}
                     initial="hidden"
                     animate="visible"
+                    drag
+                    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                    dragElastic={1}
                 >
                     <motion.path
                         fill="none"

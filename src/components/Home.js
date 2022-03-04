@@ -6,6 +6,7 @@ import {
     btnHoverVariants,
     centerVariants,
 } from "../variants/variants";
+import Pizza from "./Pizza";
 
 const Home = () => {
     return (
@@ -22,6 +23,8 @@ const Home = () => {
                     Create Your Pizza
                 </motion.button>
             </Link>
+            <br />
+            <Pizza />
         </motion.div>
     );
 };
