@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { centerVariants, nextVariants } from "../variants/variants";
+import {
+    centerVariants,
+    nextVariants,
+    btnHoverVariants,
+    itemHoverVariants,
+} from "../variants/variants";
 
 const Base = ({ addBase, pizza }) => {
     const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
@@ -21,12 +26,8 @@ const Base = ({ addBase, pizza }) => {
                         <motion.li
                             key={base}
                             onClick={() => addBase(base)}
-                            whileHover={{
-                                scale: 1.3,
-                                originX: 0,
-                                color: "#f8e112",
-                            }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                            variants={itemHoverVariants}
+                            whileHover="hover"
                         >
                             <span className={spanClass}>{base}</span>
                         </motion.li>
@@ -38,11 +39,8 @@ const Base = ({ addBase, pizza }) => {
                 <motion.div className="next" variants={nextVariants.call(null)}>
                     <Link to="/toppings">
                         <motion.button
-                            whileHover={{
-                                scale: 1.1,
-                                textShadow: "0px 0px 8px rgb(255,255,255)",
-                                boxShadow: "0px 0px 8px rgb(255,255,255)",
-                            }}
+                            variants={btnHoverVariants}
+                            whileHover="hover"
                         >
                             Next
                         </motion.button>

@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { centerVariants } from "../variants/variants";
+import {
+    btnHoverVariants,
+    centerVariants,
+    itemHoverVariants,
+} from "../variants/variants";
 
 const Toppings = ({ addTopping, pizza }) => {
     let toppings = [
@@ -30,12 +34,8 @@ const Toppings = ({ addTopping, pizza }) => {
                         <motion.li
                             key={topping}
                             onClick={() => addTopping(topping)}
-                            whileHover={{
-                                scale: 1.3,
-                                originX: 0,
-                                color: "#f8e112",
-                            }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                            variants={itemHoverVariants}
+                            whileHover="hover"
                         >
                             <span className={spanClass}>{topping}</span>
                         </motion.li>
@@ -44,13 +44,7 @@ const Toppings = ({ addTopping, pizza }) => {
             </ul>
 
             <Link to="/order">
-                <motion.button
-                    whileHover={{
-                        scale: 1.1,
-                        textShadow: "0px 0px 8px rgb(255,255,255)",
-                        boxShadow: "0px 0px 8px rgb(255,255,255)",
-                    }}
-                >
+                <motion.button variants={btnHoverVariants} whileHover="hover">
                     Order
                 </motion.button>
             </Link>
