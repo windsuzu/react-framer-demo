@@ -85,7 +85,6 @@ export const modalVariants = {
             delay: 0.1,
         },
     },
-    exit: {},
 };
 
 export const svgVariants = {

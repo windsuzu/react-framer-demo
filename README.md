@@ -272,19 +272,22 @@ const [animation, cycleAnimation] = useCycle("popping", "jumping");
 
 ## Examples
 
-| SVG Animation                 | Repeating Animation                |
-| ----------------------------- | ---------------------------------- |
-| ![](images/1-header-logo.gif) | ![](images/2-button.gif)           |
-| **Exit with AnimatePresence** | **Fade-In**                        |
-| ![](images/3-home-exit.gif)   | ![](images/4-fade.gif)             |
-| **Hover Items**               | **Animate Next Button**            |
-| ![](images/5-item.gif)        | ![](images/6-next.gif)             |
-| **StaggerChildren**           | **Show Modal**                     |
-| ![](images/7-stagger.gif)     | ![](images/8-modal.gif)            |
-| **Exit Modal**                | **Switch Animation with useCycle** |
-| ![](images/9-modal-exit.gif)  | ![](images/10-cycle.gif)           |
-| **drag**                      |
-| ![](images/11-drag.gif)       |
+以下的 Examples 都是連結到 JSX components 的原始碼，對應的 variants 請參考: [Animation Variants](https://github.com/windsuzu/react-framer-demo/blob/afc17d97fc3fd0953424b5cb95226d4fe5130588/src/variants/variants.js)
+
+
+|                    SVG Animation                     |               Repeating Animation                |
+| :--------------------------------------------------: | :----------------------------------------------: |
+|    [![](images/1-header-logo.gif)][svg-implement]    | [![](images/2-button.gif)][btn-repeat-implement] |
+|            **Exit with AnimatePresence**             |                   **Fade-In**                    |
+|  [![](images/3-home-exit.gif)][home-exit-implement]  |   [![](images/4-fade.gif)][fade-in-implement]    |
+|                   **Hover Items**                    |             **Animate Next Button**              |
+|    [![](images/5-item.gif)][hover-item-implement]    |     [![](images/6-next.gif)][next-implement]     |
+|                 **StaggerChildren**                  |                  **Show Modal**                  |
+|    [![](images/7-stagger.gif)][stagger-implement]    |    [![](images/8-modal.gif)][modal-implement]    |
+|                    **Exit Modal**                    |        **Switch Animation with useCycle**        |
+| [![](images/9-modal-exit.gif)][exit-modal-implement] | [![](images/10-cycle.gif)][use-cycle-implement]  |
+|                       **drag**                       |
+|      [![](images/11-drag.gif)][drag-implement]       |
 
 ---
 
@@ -314,3 +317,15 @@ Reach out to the maintainer at one of the following places:
 [pr-welcome-shield]: https://shields.io/badge/PRs-Welcome-ff69b4?style=for-the-badge
 [author-shield]: https://shields.io/badge/Made_with_%E2%9D%A4_by-windsuzu-F4A92F?style=for-the-badge
 [author-url]: https://github.com/windsuzu
+
+[svg-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Header.js#L9-L30
+[btn-repeat-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Home.js#L22-L24
+[home-exit-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/App.js#L34-L38
+[fade-in-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Base.js#L15-L21
+[hover-item-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Base.js#L27-L32
+[next-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Base.js#L39-L40
+[stagger-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Order.js#L20-L32
+[modal-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Modal.js#L11-L21
+[exit-modal-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/App.js#L33-L37
+[use-cycle-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Pizza.js#L4-L35
+[drag-implement]: https://github.com/windsuzu/react-framer-demo/blob/main/src/components/Header.js#L16-L18
