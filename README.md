@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+<!--
+*** Thanks for checking out the react-framer-demo. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username (that is "windsuzu"), repo_name (that is "react-framer-demo"), project_title, project_description
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- [![Issues][issues-shield]][issues-url] -->
+<!-- [![PR Welcome][pr-welcome-shield]](#contributing) -->
+[![Contributors][contributors-shield]][contributors-url]
+[![MIT License][license-shield]][license-url]
+[![Author][author-shield]][author-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://windsuzu.github.io/react-framer-demo">
+    <p style="font-size: 3rem; text-align: center">🍕🍕🍕</p>
+  </a>
+  <h3 align="center">React Framer Demo</h3>
+  <p align="center">
+    A comprehensive demo showing the use of react-router-dom v6.
+    <br />
+    <a href="https://windsuzu.github.io/react-framer-demo">View Demo</a>
+    ·
+    <a href="https://github.com/windsuzu/react-framer-demo/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/windsuzu/react-framer-demo/issues">Request Feature</a>
+  </p>
+</p>
 
-In the project directory, you can run:
+<details>
+<summary>Table of Contents</summary>
 
-### `npm start`
+* [About](#about)
+* [Preview](#preview)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</details>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+<!-- ABOUT THE PROJECT -->
+## About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+這裡展示如何使用 framer-motion 讓網頁元件動起來。
 
-### `npm run build`
+在 [Examples](#examples) 你可以點擊 gif 動畫觀看對應的原始碼；在 [Tutorial](#tutorial) 你可以看到所有 framer-motion 的用法講解。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<table>
+<tr>
+<td>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Built With**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* HTML5, CSS3, Javascript ES6
+* React.js
+* framer-motion
+* react-router-dom@v6
 
-### `npm run eject`
+**[DEMO]** : https://windsuzu.github.io/react-framer-demo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+</td>
+</tr>
+</table>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Examples
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tutorial
 
-## Learn More
+### Basic Animation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+使用 motion, initial, animate 來操作物件動畫
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Transition
 
-### Code Splitting
+在物件動畫裡加入 duration, delay, type
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Hover Animation
 
-### Analyzing the Bundle Size
+透過 hover 機制觸發動畫
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Variants
 
-### Making a Progressive Web App
+利用 variants 來更方便的管理動畫
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### KeyFrames
 
-### Advanced Configuration
+讓動畫照順序執行
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Repeating Animation
 
-### Deployment
+讓動畫重複執行
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### AnimatePresense
 
-### `npm run build` fails to minify
+利用 AnimatePresense 製作離開的動畫
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### useCycle
+
+利用 useCycle 來切換多個動畫
+
+### drag
+
+利用 drag 拖曳物件
+
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/windsuzu/react-framer-demo/blob/main/LICENSE) for more information.
+
+## Contact
+
+Reach out to the maintainer at one of the following places:
+
+* [GitHub discussions](https://github.com/windsuzu/react-framer-demo/discussions)
+* The email which is located [in GitHub profile](https://github.com/windsuzu)
+
+## Acknowledgements
+
+* [The Net Ninja](https://www.youtube.com/watch?v=2V1WK-3HQNk&list=PL4cUxeGkcC9iHDnQfTHEVVceOEBsOf07i)
+
+[contributors-shield]: https://img.shields.io/github/contributors/windsuzu/react-framer-demo.svg?style=for-the-badge
+[contributors-url]: https://github.com/windsuzu/react-framer-demo/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/windsuzu/react-framer-demo.svg?style=for-the-badge
+[issues-url]: https://github.com/windsuzu/react-framer-demo/issues
+[license-shield]: https://img.shields.io/github/license/windsuzu/react-framer-demo.svg?style=for-the-badge&label=license
+[license-url]: https://github.com/windsuzu/react-framer-demo/blob/main/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/windsuzu
+[pr-welcome-shield]: https://shields.io/badge/PRs-Welcome-ff69b4?style=for-the-badge
+[author-shield]: https://shields.io/badge/Made_with_%E2%9D%A4_by-windsuzu-F4A92F?style=for-the-badge
+[author-url]: https://github.com/windsuzu
