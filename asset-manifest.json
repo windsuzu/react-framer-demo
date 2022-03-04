@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-framer-demo/static/css/main.6a80e458.css",
+    "main.js": "/react-framer-demo/static/js/main.f9b060df.js",
+    "static/media/Quicksand-Light.woff": "/react-framer-demo/static/media/Quicksand-Light.d98669722a6e6691f69c.woff",
+    "static/media/Quicksand-Light.woff2": "/react-framer-demo/static/media/Quicksand-Light.5ee7032dc0e3019c5f0c.woff2",
+    "index.html": "/react-framer-demo/index.html",
+    "main.6a80e458.css.map": "/react-framer-demo/static/css/main.6a80e458.css.map",
+    "main.f9b060df.js.map": "/react-framer-demo/static/js/main.f9b060df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a80e458.css",
+    "static/js/main.f9b060df.js"
+  ]
+}
